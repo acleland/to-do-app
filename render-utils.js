@@ -7,7 +7,7 @@ export function renderTodo(todo) {
         li.classList.add('complete');
     }
     // add the 'todo' css class no matter what
-    li.classList.add('todo')
+    li.classList.add('todo');
     // put the todo's text into the p tag
     li.textContent = todo.description;
     // append stuff

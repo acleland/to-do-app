@@ -5,7 +5,12 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function createTodo(todo) {
     // create a single incomplete todo with the correct 'todo' property for this user in supabase
-
+    const user_id = await client.auth.user().id;
+    const response = await client.from('todos').insert([{
+        description: todo,
+        complete: false,
+        user_id: user_id
+    }]);
     return checkError(response);
 }
 
